@@ -12,17 +12,21 @@ function getCurrentDate () {
 timeBlock(startWork,endWork);
 
 function timeBlock (init,end) {
-    for(var i = init; i <= end; i++){
-        var div = $("<div>").addClass("col-2 hour").text(getHour(i));
-        var text = $("<textArea>").addClass("col-8 description");
-        var btn = $("<button>").addClass("col-2 btn saveBtn").append($("<span>").addClass("fas fa-save"));
-        var container = $("<div>").addClass('row time-block').attr("id","hour"+i);
-        $(".container").append(container.append([
-            div,
-            text,
-            btn
-        ]));;         
+    if (init<end) {
+        for(var i = init; i <= end; i++){
+            var div = $("<div>").addClass("col-2 hour").text(getHour(i));
+            var text = $("<textArea>").addClass("col-8 description");
+            var btn = $("<button>").addClass("col-2 btn saveBtn").append($("<span>").addClass("fas fa-save"));
+            var container = $("<div>").addClass('row time-block').attr("id","hour"+i);
+            $(".container").append(container.append([
+                div,
+                text,
+                btn
+            ]));;         
+        }
     }
+    else{console.log('arreglar la fecha')}
+    
 }
 
 function getHour (time) {
